@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "151893715495",
+    "firebase_url": "https://e-hatid-ac4b8-default-rtdb.firebaseio.com",
+    "project_id": "e-hatid-ac4b8",
+    "storage_bucket": "e-hatid-ac4b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151893715495:android:9e75e6bcf6746ade113c02",
+        "android_client_info": {
+          "package_name": "com.example.ehatid_driver_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "151893715495-bv6gog28i3nk9rsafd98m1rknpi51r90.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrmivN29Qs0u23lWRsDVIKYYvA1tGzDAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "151893715495-bv6gog28i3nk9rsafd98m1rknpi51r90.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151893715495:android:a6e7bf28c297e7c1113c02",
+        "android_client_info": {
+          "package_name": "com.example.ehatid_passenger_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "151893715495-9aot3f53p8qr2ttclf5lg7gllb4magce.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ehatid_passenger_app",
+            "certificate_hash": "2306a9531963cedb6e549936b0ec05e8dcdeb13d"
+          }
+        },
+        {
+          "client_id": "151893715495-bv6gog28i3nk9rsafd98m1rknpi51r90.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrmivN29Qs0u23lWRsDVIKYYvA1tGzDAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "151893715495-bv6gog28i3nk9rsafd98m1rknpi51r90.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
