@@ -666,7 +666,7 @@ class _NewTripScreenState extends State<NewTripScreen>
         if(snap.snapshot.value != null)
         {
           String fareAmount = snap.snapshot.value.toString();
-          totalFareAmount = fareAmount.toDouble()!;
+          baseAmount = fareAmount.toDouble()!;
 
           FirebaseDatabase.instance.ref()
               .child("fareAmount")
@@ -676,7 +676,7 @@ class _NewTripScreenState extends State<NewTripScreen>
           {
             String booking = snapShot.snapshot.value.toString();
             bookingFee = booking.toDouble()!;
-            totalFareAmount = totalFareAmount + bookingFee;
+            totalFareAmount = baseAmount + bookingFee;
 
             FirebaseDatabase.instance.ref()
                 .child("All Ride Requests")
@@ -699,6 +699,8 @@ class _NewTripScreenState extends State<NewTripScreen>
               context: context,
               builder: (BuildContext c)=> FareAmountCollectionDialog(
                 totalFareAmount: totalFareAmount,
+                baseAmount: baseAmount,
+                bookingFee: bookingFee,
               ),
             );
 
@@ -720,7 +722,7 @@ class _NewTripScreenState extends State<NewTripScreen>
         if(snap.snapshot.value != null)
         {
           String fareAmount = snap.snapshot.value.toString();
-          totalFareAmount = fareAmount.toDouble()!;
+          baseAmount = fareAmount.toDouble()!;
 
           FirebaseDatabase.instance.ref()
               .child("fareAmount")
@@ -730,7 +732,7 @@ class _NewTripScreenState extends State<NewTripScreen>
           {
             String booking = snapShot.snapshot.value.toString();
             bookingFee = booking.toDouble()!;
-            totalFareAmount = totalFareAmount + bookingFee;
+            totalFareAmount = baseAmount + bookingFee;
 
             FirebaseDatabase.instance.ref()
                 .child("All Ride Requests")
@@ -753,6 +755,8 @@ class _NewTripScreenState extends State<NewTripScreen>
               context: context,
               builder: (BuildContext c)=> FareAmountCollectionDialog(
                 totalFareAmount: totalFareAmount,
+                baseAmount: baseAmount,
+                bookingFee: bookingFee,
               ),
             );
 

@@ -296,10 +296,7 @@ class _OtpBodyState extends State<OtpBody> {
                   MaterialButton(
                     onPressed: (){
                       if(pin.length >= 6) {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (c) => OtpVerified(
-                          phone: "0" + widget.phone,
-                        )));
-                        // verifyOTP();
+                        verifyOTP();
                       } else {
                         Fluttertoast.showToast(msg: "Invalid OTP.");
                       }

@@ -13,9 +13,16 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class FareAmountCollectionDialog extends StatefulWidget
 {
   double? totalFareAmount;
+  double? baseAmount;
+  double? bookingFee;
   UserRideRequestInformation? userRideRequestDetails;
 
-  FareAmountCollectionDialog({this.totalFareAmount, this.userRideRequestDetails});
+  FareAmountCollectionDialog({
+    this.totalFareAmount,
+    this.userRideRequestDetails,
+    this.baseAmount,
+    this.bookingFee
+  });
 
   @override
   State<FareAmountCollectionDialog> createState() => _FareAmountCollectionDialogState();
@@ -84,15 +91,58 @@ class _FareAmountCollectionDialogState extends State<FareAmountCollectionDialog>
 
             SizedBox(height: 1.h),
 
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                "This is the total trip amount.",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: "Montserrat",
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "₱"+baseAmount.toString(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: "Montserrat",
+                        color: Color(0xFF0CBC8B),
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+
+                    Text(
+                      " + ",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: "Montserrat",
+                      ),
+                    ),
+
+                    Text(
+                      "₱"+bookingFee.toString(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: "Montserrat",
+                        color: Color(0xFF0CBC8B),
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+
+                    Text(
+                      " (booking fee)",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: "Montserrat",
+                      ),
+                    ),
+                  ],
                 ),
-              ),
+
+                Text(
+                  "This is the total trip amount.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: "Montserrat",
+                  ),
+                ),
+              ],
             ),
 
             SizedBox(height: 2.h),

@@ -44,10 +44,10 @@ LatLng? passengerOriginLatLng;
 DirectionDetailsInfo? tripDirectionDetailsInfo;
 String cloudMessagingServerToken = "key=AAAAI12SKic:APA91bEBXIQCZlwAZlLzIeuPNd5nQAUpKL4AhWvQkLtNIb3wu55BWO_-dcSRrcyeuEraWGSCVTt573S3fpT2ajuUOLXssSH0mIBSdrOPT7cfNQreYaLRDJPiEXKcjP_tdTQ2rSpd6VkQ";
 String userDropOffAddress = "";
+String distanceFromDriverToPassenger = "";
 
 List<ActiveNearbyAvailablePassengers> onlineNearbyAvailablePassengersList = [];
 
-double? minFareAmount;
-double? maxFareAmount;
+double baseAmount = 0;
 double bookingFee = 0;
 double totalFareAmount = 0;

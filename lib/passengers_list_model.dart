@@ -1,4 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class PassengersListModel
 {
@@ -9,6 +10,12 @@ class PassengersListModel
   String? fareAmount;
   String? username;
   String? driverId;
+  String? originLat;
+  String? originLng;
+  String? destinationLat;
+  String? destinationLng;
+  LatLng? originLatLng;
+  LatLng? destinationLatLng;
 
   PassengersListModel({
     this.time,
@@ -17,6 +24,12 @@ class PassengersListModel
     this.status,
     this.username,
     this.driverId,
+    this.originLat,
+    this.originLng,
+    this.destinationLat,
+    this.destinationLng,
+    this.originLatLng,
+    this.destinationLatLng,
   });
 
   PassengersListModel.fromSnapshot(DataSnapshot dataSnapshot)
@@ -28,5 +41,9 @@ class PassengersListModel
     fareAmount = (dataSnapshot.value as Map)["fareAmount"];
     username = (dataSnapshot.value as Map)["username"];
     driverId = (dataSnapshot.value as Map)["driverId"];
+    originLat = (dataSnapshot.value as Map)["origin"]["latitude"];
+    originLng = (dataSnapshot.value as Map)["origin"]["longitude"];
+    destinationLat = (dataSnapshot.value as Map)["destination"]["latitude"];
+    destinationLng = (dataSnapshot.value as Map)["destination"]["longitude"];
   }
 }

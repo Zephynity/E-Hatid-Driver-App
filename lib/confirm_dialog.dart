@@ -33,8 +33,6 @@ class _ConfirmDialogBoxState extends State<ConfirmDialogBox>
   var geoLocator = Geolocator();
   Position? onlineDriverCurrentPosition;
 
-  String distanceFromDriverToPassenger = "";
-
   @override
   void dispose() {
     print("disposing stuff");
@@ -212,6 +210,21 @@ class _ConfirmDialogBoxState extends State<ConfirmDialogBox>
                                   Icons.verified_rounded,
                                   color: Color(0xFF0CBC8B),
                                 ),
+
+                                Spacer(),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 6.0),
+                                  child: Text(
+                                    pList[index]["distance"] + " away",
+                                    style: const TextStyle(
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 15,
+                                      color: Color(0xFF0CBC8B),
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
 
@@ -381,19 +394,15 @@ class _ConfirmDialogBoxState extends State<ConfirmDialogBox>
   getPassengerDistanceFromDriver()
   async {
     print("Testing");
-    streamSubscriptionDriverLivePosition = Geolocator.getPositionStream()
-        .listen((Position position)
-    {
-      driverCurrentPosition = position;
-      onlineDriverCurrentPosition = position;
-    });
+    Position cPosition = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    onlineDriverCurrentPosition = cPosition;
 
     var originLatLng = LatLng(
       onlineDriverCurrentPosition!.latitude,
       onlineDriverCurrentPosition!.longitude,
     );
 
-    var directionInformation = await AssistantMethods.obtainOriginToDestinationDirectionDetails(originLatLng, passengerOriginLatLng!);
+    var directionInformation = await AssistantMethods.obtainOriginToDestinationDirectionDetails(originLatLng, chosenPassengerOriginLatLng!);
 
     if(directionInformation != null)
     {

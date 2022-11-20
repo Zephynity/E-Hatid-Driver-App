@@ -80,7 +80,12 @@ class PrivacyNoticeState extends State<PrivacyNotice> {
               " Bolbok to have an accessible and convenient mode of transportation via tricycle. This will allow"
               " them to book a tricycle ride in the comfort of their homes without having to worry how they'll get"
               "  a tricycle ride. This is available for use to help them save their time and effort without having"
-              " to walk far going to the terminal. \n\n",
+              " to walk far going to the terminal. \n\n"
+
+              "The free use of the E-Hatid Application is included in the registration of drivers at the TODA"
+              "Terminal in Lourdes. This implies that the finances for maintaining and updating the system will"
+              "come from the fees paid by the drivers. It is the TODA's responsibility to manage and implement all"
+              "of the system's demands and costs, such as hosting and API cost breakdowns.",
         textAlign: TextAlign.justify,
         style: TextStyle(fontFamily: "Montserrat", fontSize: 13),),
 

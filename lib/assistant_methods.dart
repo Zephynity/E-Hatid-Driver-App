@@ -21,6 +21,9 @@ import 'package:supercharged/supercharged.dart';
 
 class AssistantMethods
 {
+  var geoLocator = Geolocator();
+  Position? onlineDriverCurrentPosition;
+
   static sendNotificationToDriverNow(String deviceRegistrationToken, String userRideRequestId, context) async
   {
     String destinationAddress = userDropOffAddress;
@@ -161,14 +164,6 @@ class AssistantMethods
       double totalFareAmount = 1;
       return double.parse(totalFareAmount.toString());
     }
-
-    //Round off
-
-    //If 1 USD = 58 peso
-    // double totalFareAmount = timeTraveledFareAmountPerMinute + distanceTraveledFareAmountPerKilometer;
-    // double localCurrencyTotalFare = totalFareAmount * 58; for conversion
-
-
   }
 
   static void readKeysForOnlinePassengers(context)
@@ -204,7 +199,7 @@ class AssistantMethods
     });
   }
 
-  static void readPassengerInformation(context)
+  static void readPassengerInformation(context) async
   {
     var passengerAllKeys = Provider.of<AppInfo>(context, listen: false).activePassengerList;
 
@@ -215,12 +210,37 @@ class AssistantMethods
           .child(eachKeys)
           .once()
           .then((snap)
-      {
+      async {
         var eachPassenger = PassengersListModel.fromSnapshot(snap.snapshot);
 
         if((snap.snapshot.value as Map)["driverId"] == "waiting")
         {
           //update-add each history to OverAllTrips History Data List
+          double chosenPassengerOriginLat = double.parse((snap.snapshot.value as Map)["origin"]["latitude"]);
+          double chosenPassengerOriginLng = double.parse((snap.snapshot.value as Map)["origin"]["longitude"]);
+          chosenPassengerOriginLatLng = LatLng(chosenPassengerOriginLat, chosenPassengerOriginLng);
+          double chosenPassengerDestinationLat = double.parse((snap.snapshot.value as Map)["destination"]["latitude"]);
+          double chosenPassengerDestinationLng = double.parse((snap.snapshot.value as Map)["destination"]["longitude"]);
+          chosenPassengerDestinationLatLng = LatLng(chosenPassengerDestinationLat, chosenPassengerDestinationLng);
+
+          var originLatLng = LatLng(
+            driverCurrentPosition!.latitude,
+            driverCurrentPosition!.longitude,
+          );
+
+          var directionInformation = await AssistantMethods.obtainOriginToDestinationDirectionDetails(originLatLng, chosenPassengerOriginLatLng!);
+
+          if(directionInformation != null)
+          {
+            distanceFromDriverToPassenger = directionInformation.distance_text!;
+
+            FirebaseDatabase.instance.ref()
+                .child("All Ride Requests")
+                .child(eachKeys)
+                .child("distance")
+                .set(distanceFromDriverToPassenger);
+          }
+
           Provider.of<AppInfo>(context, listen: false).updatePassengerList(eachPassenger);
         }
       });

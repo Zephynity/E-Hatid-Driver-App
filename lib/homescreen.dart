@@ -574,7 +574,6 @@ class _HomePageState extends State<HomePage>
           double originLat = double.parse((snapData.snapshot.value! as Map)["origin"]["latitude"]);
           double originLng = double.parse((snapData.snapshot.value! as Map)["origin"]["longitude"]);
           String originAddress = (snapData.snapshot.value! as Map)["originAddress"];
-          passengerOriginLatLng = LatLng(originLat, originLng);
 
           double destinationLat = double.parse((snapData.snapshot.value! as Map)["destination"]["latitude"]);
           double destinationLng = double.parse((snapData.snapshot.value! as Map)["destination"]["longitude"]);
