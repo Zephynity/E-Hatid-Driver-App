@@ -59,7 +59,7 @@ class _SelectNearestActivePassengersScreenState extends State<SelectNearestActiv
             // widget.referenceRideRequest!.remove();
             //Navigator.pop(context);
             Navigator.pushReplacement(context, MaterialPageRoute(
-              builder: (_) => Navigation(),
+              builder: (_) => Navigation(index: 0,),
             ),
             );
           },

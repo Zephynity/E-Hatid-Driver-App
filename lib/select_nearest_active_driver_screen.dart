@@ -51,7 +51,7 @@ class _SelectNearestActiveDriversScreenState extends State<SelectNearestActiveDr
           {
             Provider.of<AppInfo>(context, listen: false).passengerInformationList.clear();
             Navigator.pushReplacement(context, MaterialPageRoute(
-              builder: (_) => Navigation(),
+              builder: (_) => Navigation(index: 0,),
             ),
             );
           },

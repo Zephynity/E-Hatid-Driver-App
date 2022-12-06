@@ -99,7 +99,7 @@ class _NewTripScreenState extends State<NewTripScreen>
 
     setState(() {
       Polyline polyline = Polyline(
-        color: Color(0xFF0CBC8B),
+        color: Color(0xFFE74338),
         polylineId: const PolylineId("PolylineID"),
         jointType: JointType.round,
         points: polyLinePositionCoordinates,
@@ -316,7 +316,9 @@ class _NewTripScreenState extends State<NewTripScreen>
             showDialog(
               context: context,
               barrierDismissible: false,
-              builder: (BuildContext context) => PassengerCancelledDialog(),
+              builder: (BuildContext context) => PassengerCancelledDialog(
+                  chosenPassengerId: chosenPassengerId.toString()
+              ),
             );
           }
         }

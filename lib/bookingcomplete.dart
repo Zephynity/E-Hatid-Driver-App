@@ -42,7 +42,7 @@ class _BookingComplete extends State<BookingComplete> {
                   children: <Widget>[
                     Positioned(
                       top: 0,
-                      child: Image.asset("assets/images/Vector 10.png",
+                      child: Image.asset("assets/images/Vector 1.png",
                         width: size.width,
                       ),
                     ),

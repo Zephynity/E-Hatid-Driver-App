@@ -14,8 +14,9 @@ class PassengerCancelledDialog extends StatefulWidget
 {
   double? totalFareAmount;
   UserRideRequestInformation? userRideRequestDetails;
+  String? chosenPassengerId;
 
-  PassengerCancelledDialog({this.totalFareAmount, this.userRideRequestDetails});
+  PassengerCancelledDialog({this.totalFareAmount, this.userRideRequestDetails, this.chosenPassengerId});
 
   @override
   State<PassengerCancelledDialog> createState() => _PassengerCancelledDialogState();
@@ -97,7 +98,11 @@ class _PassengerCancelledDialogState extends State<PassengerCancelledDialog>
                 SizedBox(height: 2.h,),
                 MaterialButton(
                   onPressed: (){
-                    Navigator.of(context, rootNavigator: true).pop();
+                    FirebaseDatabase.instance.ref()
+                        .child("All Ride Requests")
+                        .child(chosenPassengerId.toString())
+                        .remove();
+                    RestartWidget.restartApp(context);
                   },
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50)

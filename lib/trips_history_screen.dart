@@ -41,7 +41,7 @@ class _TripsHistoryScreenState extends State<TripsHistoryScreen>
           {
             Provider.of<AppInfo>(context, listen: false).allTripsHistoryInformationList.clear();
             Navigator.pushReplacement(context, MaterialPageRoute(
-              builder: (_) => Navigation(),
+              builder: (_) => Navigation(index: 1,),
             ),
             );
           },

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:ehatid_driver_app/navigation_bar.dart';
+import 'package:ehatid_driver_app/profile_tab.dart';
 import 'package:ehatid_driver_app/progress_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -165,20 +166,9 @@ class _UpdateRecordState extends State<UpdateRecord> {
       Fluttertoast.showToast(msg: "Password must be atleast 8 Characters.");
     }
 
-    // else if (_confirmpasswordController.text == null || _confirmpasswordController.text.isEmpty)
-    // {
-    //   focusConfirmPass.requestFocus();
-    //   Fluttertoast.showToast(msg: "Please re-enter your password.");
-    // }
-    //
-    // else if (_confirmpasswordController.text != _passwordController.text)
-    // {
-    //   focusConfirmPass.requestFocus();
-    //   Fluttertoast.showToast(msg: "Password mismatch.");
-    // }
-
     else
     {
+      FirebaseAuth.instance.currentUser!.updatePassword(_passwordController.text);
       update();
     }
   }
@@ -212,7 +202,7 @@ class _UpdateRecordState extends State<UpdateRecord> {
         Fluttertoast.showToast(msg: "Updated Successfully."),
 
         Navigator.pushReplacement(context, MaterialPageRoute(
-          builder: (_) => Navigation(),
+          builder: (_) => Navigation(index: 3,),
         ),
         ),
       });
@@ -231,7 +221,7 @@ class _UpdateRecordState extends State<UpdateRecord> {
     focusUsername.dispose();
     focusPass.dispose();
     focusConfirmPass.dispose();
-
+    _passwordController.dispose();
     super.dispose();
   }
 
@@ -664,7 +654,7 @@ class _UpdateRecordState extends State<UpdateRecord> {
                     MaterialButton(
                       onPressed: () {
                         Navigator.pushReplacement(context, MaterialPageRoute(
-                          builder: (_) => Navigation(),
+                          builder: (_) => Navigation(index: 3,),
                         ),
                         );
                       },

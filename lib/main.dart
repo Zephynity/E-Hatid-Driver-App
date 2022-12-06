@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
             initialRoute: initScreen == 0 ? 'welcome' : 'homepage',
             // paltan ang login ng homepage
             routes: {
-              'homepage': (context) => Navigation(),
+              'homepage': (context) => Navigation(index: 0,),
               'welcome': (context) => MainPage(),
             },
           ),

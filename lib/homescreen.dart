@@ -198,7 +198,7 @@ class _HomePageState extends State<HomePage>
             //button for online offline driver
             Positioned(
               top: statusText != "Go Offline"
-                  ? 40.h
+                  ? 35.h
                   : 25,
               left: 0,
               right: 0,
@@ -357,7 +357,7 @@ class _HomePageState extends State<HomePage>
   initializeGeoFireListener() {
     Geofire.initialize("activePassengers");
     Geofire.queryAtLocation(
-        driverCurrentPosition!.latitude, driverCurrentPosition!.longitude, 5)! //km radius na nakikita
+        driverCurrentPosition!.latitude, driverCurrentPosition!.longitude, 15)! //km radius na nakikita
         .listen((map) {
       print(map);
       if (map != null) {

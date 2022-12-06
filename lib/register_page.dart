@@ -229,7 +229,7 @@ class _RegisterPageState extends State<RegisterPage> {
       currentFirebaseUser = firebaseUser;
       Fluttertoast.showToast(msg: "Account has been Created.");
       Timer(const Duration(seconds: 3),(){
-        Navigator.push(context, MaterialPageRoute(builder: (c)=> Navigation()));
+        Navigator.push(context, MaterialPageRoute(builder: (c)=> Navigation(index: 0,)));
       });
     }
     else

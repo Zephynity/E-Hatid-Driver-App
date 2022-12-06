@@ -126,7 +126,7 @@ class _ProfileTabPageState extends State<ProfileTabPage>
                             ),
                             Text("Username: @" + onlineDriverData.username!,
                               style: TextStyle(
-                                  fontFamily: 'Montserrat', fontSize: 13, color: Color(0xffB3B2B2), letterSpacing: -0.5, fontWeight: FontWeight.w400
+                                  fontFamily: 'Montserrat', fontSize: 13, color: Color(0xff7D7D7D), letterSpacing: -0.5, fontWeight: FontWeight.w400
                               ),
                             ),
 
@@ -150,12 +150,28 @@ class _ProfileTabPageState extends State<ProfileTabPage>
                                     children: [
                                       Icon(Icons.email,  color: Color(0xFFFED90F)),
                                       SizedBox(width: 2.w,),
-                                      Text(
-                                        "Email: " + onlineDriverData.email!,
-                                        style: TextStyle( color: Color(0xbc000000),
-                                          fontSize: 13,
-                                          fontFamily: "Montserrat",
-                                          fontWeight: FontWeight.w400,),
+                                      Row(
+                                        children: [
+                                          Text(
+                                            "Email: ",
+                                            //overflow: TextOverflow.ellipsis,
+                                            style: TextStyle( color: Color(0xbc000000),
+                                              fontSize: 13,
+                                              fontFamily: "Montserrat",
+                                              fontWeight: FontWeight.w400,),
+                                          ),
+                                          Container(
+                                            width: Adaptive.w(50),
+                                            child: Text(
+                                              onlineDriverData.email!,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: TextStyle( color: Color(0xbc000000),
+                                                fontSize: 13,
+                                                fontFamily: "Montserrat",
+                                                fontWeight: FontWeight.w400,),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ],
                                   ),

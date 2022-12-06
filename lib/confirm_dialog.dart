@@ -71,8 +71,6 @@ class _ConfirmDialogBoxState extends State<ConfirmDialogBox>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(width: 7.w,),
-
                     Text("Passengers Near You",
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -81,16 +79,6 @@ class _ConfirmDialogBoxState extends State<ConfirmDialogBox>
                         fontSize: 20.sp,
                         letterSpacing: -0.5,
                         fontWeight: FontWeight.bold,
-                      ),
-                    ),
-
-                    SizedBox(width: 2.5.w,),
-
-                    GestureDetector(
-                      onTap: () => Navigator.pop(dialogContext),
-                      child: Icon(
-                        Icons.close_rounded,
-                        color: Colors.white,
                       ),
                     ),
                   ],
@@ -195,13 +183,16 @@ class _ConfirmDialogBoxState extends State<ConfirmDialogBox>
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(left: 6.0),
-                                  child: Text(
-                                    pList[index]["username"],
-                                    style: const TextStyle(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 14,
-                                      color: Color(0xFF272727),
-                                      fontWeight: FontWeight.bold,
+                                  child: Container(
+                                    child: Text(
+                                      pList[index]["username"],
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                        fontFamily: 'Montserrat',
+                                        fontSize: 14,
+                                        color: Color(0xFF272727),
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -215,13 +206,16 @@ class _ConfirmDialogBoxState extends State<ConfirmDialogBox>
 
                                 Padding(
                                   padding: const EdgeInsets.only(right: 6.0),
-                                  child: Text(
-                                    pList[index]["distance"] + " away",
-                                    style: const TextStyle(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 15,
-                                      color: Color(0xFF0CBC8B),
-                                      fontWeight: FontWeight.w600,
+                                  child: Container(
+                                    child: Text(
+                                      pList[index]["distance"],
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                        fontFamily: 'Montserrat',
+                                        fontSize: 15,
+                                        color: Color(0xFF0CBC8B),
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     ),
                                   ),
                                 ),

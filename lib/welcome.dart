@@ -29,7 +29,7 @@ class _WelcomeScreen extends State<WelcomeScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color(0xFFF5F5F5),
+      backgroundColor: Color(0xFFFFFCEA),
       body: SingleChildScrollView(
         child: Container(
           height: size.height,

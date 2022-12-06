@@ -90,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
               }
           );
           Timer(const Duration(seconds: 3),(){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (c)=>  Navigation()));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (c)=>  Navigation(index: 0,)));
           });
         }
         else

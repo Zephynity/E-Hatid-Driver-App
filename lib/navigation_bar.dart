@@ -9,7 +9,9 @@ import 'package:provider/provider.dart';
 import 'app_info.dart';
 
 class Navigation extends StatefulWidget {
-  const Navigation({Key? key}) : super(key: key);
+  final int index;
+
+  Navigation({required this.index});
 
   @override
   State<Navigation> createState() => _NavigationState();

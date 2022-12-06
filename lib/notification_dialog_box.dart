@@ -178,7 +178,7 @@ class _NotificationDialogBoxState extends State<NotificationDialogBox>
                       });
 
                       Navigator.pushReplacement(context, MaterialPageRoute(
-                          builder: (_) => Navigation(),
+                          builder: (_) => Navigation(index: 0,),
                       ),
                       );
                     },
